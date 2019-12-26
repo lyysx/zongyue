@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiki.zongyue.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.shiki.zongyue.pojo.User">
+    <id column="user_id" jdbcType="INTEGER" property="user_id" />
+    <result column="user_login_name" jdbcType="VARCHAR" property="user_login_name" />
+    <result column="user_password" jdbcType="VARCHAR" property="user_password" />
+    <result column="user_nickname" jdbcType="VARCHAR" property="user_nickname" />
+    <result column="user_gender" jdbcType="VARCHAR" property="user_gender" />
+    <result column="user_birthday" jdbcType="TIMESTAMP" property="user_birthday" />
+    <result column="user_information" jdbcType="VARCHAR" property="user_information" />
+    <result column="user_recommend_ticket" jdbcType="INTEGER" property="user_recommend_ticket" />
+    <result column="user_deposit" jdbcType="INTEGER" property="user_deposit" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="user_image" jdbcType="VARCHAR" property="user_image" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, user_login_name, user_password, user_nickname, user_gender, user_birthday, 
+    user_information, user_recommend_ticket, user_deposit, salt, user_image
+  </sql>
+  <select id="selectByExample" parameterType="com.shiki.zongyue.pojo.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="user_id" parameterType="com.shiki.zongyue.pojo.User" useGeneratedKeys="true">
+    insert into user (user_login_name, user_password, user_nickname, 
+      user_gender, user_birthday, user_information, 
+      user_recommend_ticket, user_deposit, salt, 
+      user_image)
+    values (#{user_login_name,jdbcType=VARCHAR}, #{user_password,jdbcType=VARCHAR}, #{user_nickname,jdbcType=VARCHAR}, 
+      #{user_gender,jdbcType=VARCHAR}, #{user_birthday,jdbcType=TIMESTAMP}, #{user_information,jdbcType=VARCHAR}, 
+      #{user_recommend_ticket,jdbcType=INTEGER}, #{user_deposit,jdbcType=INTEGER}, #{salt,jdbcType=VARCHAR}, 
+      #{user_image,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="user_id" parameterType="com.shiki.zongyue.pojo.User" useGeneratedKeys="true">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_login_name != null">
+        user_login_name,
+      </if>
+      <if test="user_password != null">
+        user_password,
+      </if>
+      <if test="user_nickname != null">
+        user_nickname,
+      </if>
+      <if test="user_gender != null">
+        user_gender,
+      </if>
+      <if test="user_birthday != null">
+        user_birthday,
+      </if>
+      <if test="user_information != null">
+        user_information,
+      </if>
+      <if test="user_recommend_ticket != null">
+        user_recommend_ticket,
+      </if>
+      <if test="user_deposit != null">
+        user_deposit,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="user_image != null">
+        user_image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_login_name != null">
+        #{user_login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null">
+        #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_nickname != null">
+        #{user_nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="user_gender != null">
+        #{user_gender,jdbcType=VARCHAR},
+      </if>
+      <if test="user_birthday != null">
+        #{user_birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_information != null">
+        #{user_information,jdbcType=VARCHAR},
+      </if>
+      <if test="user_recommend_ticket != null">
+        #{user_recommend_ticket,jdbcType=INTEGER},
+      </if>
+      <if test="user_deposit != null">
+        #{user_deposit,jdbcType=INTEGER},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="user_image != null">
+        #{user_image,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shiki.zongyue.pojo.User">
+    update user
+    <set>
+      <if test="user_login_name != null">
+        user_login_name = #{user_login_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null">
+        user_password = #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_nickname != null">
+        user_nickname = #{user_nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="user_gender != null">
+        user_gender = #{user_gender,jdbcType=VARCHAR},
+      </if>
+      <if test="user_birthday != null">
+        user_birthday = #{user_birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="user_information != null">
+        user_information = #{user_information,jdbcType=VARCHAR},
+      </if>
+      <if test="user_recommend_ticket != null">
+        user_recommend_ticket = #{user_recommend_ticket,jdbcType=INTEGER},
+      </if>
+      <if test="user_deposit != null">
+        user_deposit = #{user_deposit,jdbcType=INTEGER},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="user_image != null">
+        user_image = #{user_image,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shiki.zongyue.pojo.User">
+    update user
+    set user_login_name = #{user_login_name,jdbcType=VARCHAR},
+      user_password = #{user_password,jdbcType=VARCHAR},
+      user_nickname = #{user_nickname,jdbcType=VARCHAR},
+      user_gender = #{user_gender,jdbcType=VARCHAR},
+      user_birthday = #{user_birthday,jdbcType=TIMESTAMP},
+      user_information = #{user_information,jdbcType=VARCHAR},
+      user_recommend_ticket = #{user_recommend_ticket,jdbcType=INTEGER},
+      user_deposit = #{user_deposit,jdbcType=INTEGER},
+      salt = #{salt,jdbcType=VARCHAR},
+      user_image = #{user_image,jdbcType=VARCHAR}
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </update>
+</mapper>

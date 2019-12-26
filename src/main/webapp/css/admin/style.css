@@ -1,0 +1,333 @@
+
+#web_bg{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    min-width: 1000px;
+    z-index:-10;
+    zoom: 1;
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+}
+
+.loginDiv {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: lightgray 1px;
+}
+div.footer{
+    margin:20px;
+    text-align:center;
+}
+
+td.first {
+    width: 10%;
+    text-align: center;
+}
+
+td.second {
+    width: 10%;
+    text-align: center;
+}
+td.third {
+    width: 10%;
+    text-align: center;
+}
+td.fourth {
+    width: 10%;
+    text-align: center;
+}
+td.fifth {
+    width: 50%;
+    text-align: center;
+}
+td.sixth {
+    width: 10%;
+    text-align: center;
+}
+
+td.fifth1 {
+    width: 50%;
+    text-align: left;
+}
+ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
+
+.bookDetailWrap {
+    margin-top: 70px;
+    position: relative;
+    display: block;
+    padding: 100px 320px;
+}
+.bookImage {
+    margin-right: 20px;
+}
+.bookInformation {
+    width: 70%;
+    float: left;
+}
+#clearDiv {
+    clear: both;
+}
+
+.contentNavWrap {
+    margin-top: 20px;
+}
+
+div.pageDiv{
+    text-align:center;
+}
+
+div.chapterContainer{
+    background-color: #f7f2e8;
+    padding: 60px 64px;
+}
+
+div.info_reader{
+    font-size: 10px;
+    color: rgb(181, 178, 170);
+}
+
+div.info_reader span{
+    margin-right: 16px;
+}
+
+div.info_reader a {
+    margin-right: 16px;
+    color: rgb(181, 178, 170);
+    text-decoration: none;
+}
+div.info_reader a:hover{
+    color: #ff5b54;
+}
+
+div.chapterContent {
+    margin-bottom: 60px;
+}
+
+div.chapterContent pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 20px;
+    line-height: 1.8;
+    background-color: transparent;
+    border: none;
+}
+
+div.textHeader{
+    margin-bottom: 12px;
+}
+
+div.textWarp {
+    margin-top: 21px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+div.textHeader h2{
+    margin-bottom: 12px;
+}
+
+div.workingArea {
+    margin-top: 70px;
+}
+
+div.fictionSection ul{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+div.title{
+    font-size: 24px;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .title {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .title {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .title {
+        width: 1170px;
+    }
+}
+
+
+.information{
+    text-align: center;
+    font-size: 40px;
+}
+.marginTop{
+    display: block;
+    margin-top: 70px;
+}
+
+.inner-ul {
+    padding-left: 0;
+}
+
+.inner-ul li{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.inner-ul span {
+    margin-right: 20px;
+}
+
+.inner-ul button{
+    margin-right: 15px;
+}
+
+.inner-middle {
+    border: solid #cad2df;
+    border-width: 1px 0px 1px 0px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.inner-middle span{
+    font-size: 22px;
+    margin-right: 30px;
+}
+.inner-ul input{
+    width: 30%;
+}
+.borderLine {
+    border: 0 solid #cad2df;
+    border-bottom-width: 1px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+#container{
+    display: block;
+}
+
+#addContainer {
+    display: none;
+}
+
+#updateContainer {
+    display: none;
+}
+
+.flr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.hoverP {
+    cursor: pointer;
+}
+.image:hover {
+    cursor: pointer;
+}
+
+.fr {
+    display: flex;
+    flex-direction: row;
+}
+.book-wrap {
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+.book-wrap a {
+    text-decoration: none;
+    outline: none;
+    color: #5d595c;
+}
+.book-wrap a:hover {
+    color: #ff2725;
+}
+.top-wrap {
+    display: flex;
+    flex-direction: row;
+}
+.book-title {
+    font-size: 36px;
+    font-weight: 500;
+    margin-right: 10px;
+    line-height: 1.1;
+}
+.book-author {
+    font-size: 14px;
+    position: relative;
+    width: 200px;
+
+}
+.author-info {
+    position: absolute;
+    bottom: 0px;
+}
+.title-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.read {
+    margin-bottom: 10px;
+}
+.read a {
+    color: whitesmoke;
+}
+.point:hover {
+    cursor: pointer;
+}
+.synopsisPre {
+    white-space: pre-wrap;
+    background-color: white;
+}
+.chapterController{
+    margin: 30px 25% 5%;
+    background-color: #f8f3e9;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    text-align: center;
+}
+.chapterController a{
+    text-decoration: none;
+    display: inline-block;
+    width: 33.3%;
+    font: 18px/70px "Adobe Arabic";
+    margin: 0;
+    color: #2f2f2f;
+    background-color: transparent;
+    outline: none;
+}
+.chapterController a:hover {
+    background-color: #f2ede3;
+}
+
+a.disabled {
+    pointer-events: none;
+    filter: alpha(opacity=0.5);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}

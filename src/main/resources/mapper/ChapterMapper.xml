@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiki.zongyue.mapper.ChapterMapper">
+  <resultMap id="BaseResultMap" type="com.shiki.zongyue.pojo.Chapter">
+    <id column="chapter_id" jdbcType="INTEGER" property="chapter_id" />
+    <result column="fiction_id" jdbcType="INTEGER" property="fiction_id" />
+    <result column="chapter_number" jdbcType="INTEGER" property="chapter_number" />
+    <result column="chapter_word_number" jdbcType="INTEGER" property="chapter_word_number" />
+    <result column="chapter_title" jdbcType="VARCHAR" property="chapter_title" />
+    <result column="chapter_state" jdbcType="INTEGER" property="chapter_state" />
+    <result column="chapter_edit_time" jdbcType="TIMESTAMP" property="chapter_edit_time" />
+    <result column="chapter_pay_state" jdbcType="TINYINT" property="chapter_pay_state" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.shiki.zongyue.pojo.Chapter">
+    <result column="chapter_context" jdbcType="LONGVARCHAR" property="chapter_context" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    chapter_id, fiction_id, chapter_number, chapter_word_number, chapter_title, chapter_state, 
+    chapter_edit_time, chapter_pay_state
+  </sql>
+  <sql id="Blob_Column_List">
+    chapter_context
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.shiki.zongyue.pojo.ChapterExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from chapter
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.shiki.zongyue.pojo.ChapterExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from chapter
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from chapter
+    where chapter_id = #{chapter_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from chapter
+    where chapter_id = #{chapter_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="chapter_id" keyProperty="chapter_id" parameterType="com.shiki.zongyue.pojo.Chapter" useGeneratedKeys="true">
+    insert into chapter (fiction_id, chapter_number, chapter_word_number, 
+      chapter_title, chapter_state, chapter_edit_time, 
+      chapter_pay_state, chapter_context)
+    values (#{fiction_id,jdbcType=INTEGER}, #{chapter_number,jdbcType=INTEGER}, #{chapter_word_number,jdbcType=INTEGER}, 
+      #{chapter_title,jdbcType=VARCHAR}, #{chapter_state,jdbcType=INTEGER}, #{chapter_edit_time,jdbcType=TIMESTAMP}, 
+      #{chapter_pay_state,jdbcType=TINYINT}, #{chapter_context,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="chapter_id" keyProperty="chapter_id" parameterType="com.shiki.zongyue.pojo.Chapter" useGeneratedKeys="true">
+    insert into chapter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fiction_id != null">
+        fiction_id,
+      </if>
+      <if test="chapter_number != null">
+        chapter_number,
+      </if>
+      <if test="chapter_word_number != null">
+        chapter_word_number,
+      </if>
+      <if test="chapter_title != null">
+        chapter_title,
+      </if>
+      <if test="chapter_state != null">
+        chapter_state,
+      </if>
+      <if test="chapter_edit_time != null">
+        chapter_edit_time,
+      </if>
+      <if test="chapter_pay_state != null">
+        chapter_pay_state,
+      </if>
+      <if test="chapter_context != null">
+        chapter_context,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fiction_id != null">
+        #{fiction_id,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_number != null">
+        #{chapter_number,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_word_number != null">
+        #{chapter_word_number,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_title != null">
+        #{chapter_title,jdbcType=VARCHAR},
+      </if>
+      <if test="chapter_state != null">
+        #{chapter_state,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_edit_time != null">
+        #{chapter_edit_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chapter_pay_state != null">
+        #{chapter_pay_state,jdbcType=TINYINT},
+      </if>
+      <if test="chapter_context != null">
+        #{chapter_context,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shiki.zongyue.pojo.Chapter">
+    update chapter
+    <set>
+      <if test="fiction_id != null">
+        fiction_id = #{fiction_id,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_number != null">
+        chapter_number = #{chapter_number,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_word_number != null">
+        chapter_word_number = #{chapter_word_number,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_title != null">
+        chapter_title = #{chapter_title,jdbcType=VARCHAR},
+      </if>
+      <if test="chapter_state != null">
+        chapter_state = #{chapter_state,jdbcType=INTEGER},
+      </if>
+      <if test="chapter_edit_time != null">
+        chapter_edit_time = #{chapter_edit_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chapter_pay_state != null">
+        chapter_pay_state = #{chapter_pay_state,jdbcType=TINYINT},
+      </if>
+      <if test="chapter_context != null">
+        chapter_context = #{chapter_context,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where chapter_id = #{chapter_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.shiki.zongyue.pojo.Chapter">
+    update chapter
+    set fiction_id = #{fiction_id,jdbcType=INTEGER},
+      chapter_number = #{chapter_number,jdbcType=INTEGER},
+      chapter_word_number = #{chapter_word_number,jdbcType=INTEGER},
+      chapter_title = #{chapter_title,jdbcType=VARCHAR},
+      chapter_state = #{chapter_state,jdbcType=INTEGER},
+      chapter_edit_time = #{chapter_edit_time,jdbcType=TIMESTAMP},
+      chapter_pay_state = #{chapter_pay_state,jdbcType=TINYINT},
+      chapter_context = #{chapter_context,jdbcType=LONGVARCHAR}
+    where chapter_id = #{chapter_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shiki.zongyue.pojo.Chapter">
+    update chapter
+    set fiction_id = #{fiction_id,jdbcType=INTEGER},
+      chapter_number = #{chapter_number,jdbcType=INTEGER},
+      chapter_word_number = #{chapter_word_number,jdbcType=INTEGER},
+      chapter_title = #{chapter_title,jdbcType=VARCHAR},
+      chapter_state = #{chapter_state,jdbcType=INTEGER},
+      chapter_edit_time = #{chapter_edit_time,jdbcType=TIMESTAMP},
+      chapter_pay_state = #{chapter_pay_state,jdbcType=TINYINT}
+    where chapter_id = #{chapter_id,jdbcType=INTEGER}
+  </update>
+</mapper>

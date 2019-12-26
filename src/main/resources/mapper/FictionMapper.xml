@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiki.zongyue.mapper.FictionMapper">
+  <resultMap id="BaseResultMap" type="com.shiki.zongyue.pojo.Fiction">
+    <id column="fiction_id" jdbcType="INTEGER" property="fiction_id" />
+    <result column="fiction_image" jdbcType="VARCHAR" property="fiction_image" />
+    <result column="fiction_name" jdbcType="VARCHAR" property="fiction_name" />
+    <result column="fiction_synopsis" jdbcType="VARCHAR" property="fiction_synopsis" />
+    <result column="fiction_recommend" jdbcType="INTEGER" property="fiction_recommend" />
+    <result column="fiction_word_number" jdbcType="INTEGER" property="fiction_word_number" />
+    <result column="author_id" jdbcType="INTEGER" property="author_id" />
+    <result column="genre_id" jdbcType="INTEGER" property="genre_id" />
+    <result column="fiction_state" jdbcType="INTEGER" property="fiction_state" />
+    <result column="fiction_writing_state" jdbcType="INTEGER" property="fiction_writing_state" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    fiction_id, fiction_image, fiction_name, fiction_synopsis, fiction_recommend, fiction_word_number, 
+    author_id, genre_id, fiction_state, fiction_writing_state
+  </sql>
+  <select id="selectByExample" parameterType="com.shiki.zongyue.pojo.FictionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from fiction
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fiction
+    where fiction_id = #{fiction_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from fiction
+    where fiction_id = #{fiction_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="fiction_id" keyProperty="fiction_id" parameterType="com.shiki.zongyue.pojo.Fiction" useGeneratedKeys="true">
+    insert into fiction (fiction_image, fiction_name, fiction_synopsis, 
+      fiction_recommend, fiction_word_number, 
+      author_id, genre_id, fiction_state, 
+      fiction_writing_state)
+    values (#{fiction_image,jdbcType=VARCHAR}, #{fiction_name,jdbcType=VARCHAR}, #{fiction_synopsis,jdbcType=VARCHAR}, 
+      #{fiction_recommend,jdbcType=INTEGER}, #{fiction_word_number,jdbcType=INTEGER}, 
+      #{author_id,jdbcType=INTEGER}, #{genre_id,jdbcType=INTEGER}, #{fiction_state,jdbcType=INTEGER}, 
+      #{fiction_writing_state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="fiction_id" keyProperty="fiction_id" parameterType="com.shiki.zongyue.pojo.Fiction" useGeneratedKeys="true">
+    insert into fiction
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fiction_image != null">
+        fiction_image,
+      </if>
+      <if test="fiction_name != null">
+        fiction_name,
+      </if>
+      <if test="fiction_synopsis != null">
+        fiction_synopsis,
+      </if>
+      <if test="fiction_recommend != null">
+        fiction_recommend,
+      </if>
+      <if test="fiction_word_number != null">
+        fiction_word_number,
+      </if>
+      <if test="author_id != null">
+        author_id,
+      </if>
+      <if test="genre_id != null">
+        genre_id,
+      </if>
+      <if test="fiction_state != null">
+        fiction_state,
+      </if>
+      <if test="fiction_writing_state != null">
+        fiction_writing_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fiction_image != null">
+        #{fiction_image,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_name != null">
+        #{fiction_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_synopsis != null">
+        #{fiction_synopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_recommend != null">
+        #{fiction_recommend,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_word_number != null">
+        #{fiction_word_number,jdbcType=INTEGER},
+      </if>
+      <if test="author_id != null">
+        #{author_id,jdbcType=INTEGER},
+      </if>
+      <if test="genre_id != null">
+        #{genre_id,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_state != null">
+        #{fiction_state,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_writing_state != null">
+        #{fiction_writing_state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shiki.zongyue.pojo.Fiction">
+    update fiction
+    <set>
+      <if test="fiction_image != null">
+        fiction_image = #{fiction_image,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_name != null">
+        fiction_name = #{fiction_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_synopsis != null">
+        fiction_synopsis = #{fiction_synopsis,jdbcType=VARCHAR},
+      </if>
+      <if test="fiction_recommend != null">
+        fiction_recommend = #{fiction_recommend,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_word_number != null">
+        fiction_word_number = #{fiction_word_number,jdbcType=INTEGER},
+      </if>
+      <if test="author_id != null">
+        author_id = #{author_id,jdbcType=INTEGER},
+      </if>
+      <if test="genre_id != null">
+        genre_id = #{genre_id,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_state != null">
+        fiction_state = #{fiction_state,jdbcType=INTEGER},
+      </if>
+      <if test="fiction_writing_state != null">
+        fiction_writing_state = #{fiction_writing_state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where fiction_id = #{fiction_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shiki.zongyue.pojo.Fiction">
+    update fiction
+    set fiction_image = #{fiction_image,jdbcType=VARCHAR},
+      fiction_name = #{fiction_name,jdbcType=VARCHAR},
+      fiction_synopsis = #{fiction_synopsis,jdbcType=VARCHAR},
+      fiction_recommend = #{fiction_recommend,jdbcType=INTEGER},
+      fiction_word_number = #{fiction_word_number,jdbcType=INTEGER},
+      author_id = #{author_id,jdbcType=INTEGER},
+      genre_id = #{genre_id,jdbcType=INTEGER},
+      fiction_state = #{fiction_state,jdbcType=INTEGER},
+      fiction_writing_state = #{fiction_writing_state,jdbcType=INTEGER}
+    where fiction_id = #{fiction_id,jdbcType=INTEGER}
+  </update>
+</mapper>

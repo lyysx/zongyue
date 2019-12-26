@@ -1,0 +1,582 @@
+body {
+    min-width: 938px;
+}
+
+div.top-logo{
+
+    padding-left: 30px;
+    float: left;
+    width: 30%;
+    height: 50px;
+}
+
+div.user-top{
+    padding-right: 30px;
+    text-align: right;
+    float: right;
+    width: 30%;
+    height: 50px;
+}
+
+div.top-search{
+    height: 50px;
+    width: 450px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.top-head{
+    margin-top: 20px;
+    height: 50px;
+    position: relative;
+}
+
+div.user-top a{
+    color: #262626;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+div.user-top a:hover{
+    color: #ff2725;
+}
+
+input.search-btn{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: white;
+}
+
+input.search-input{
+    padding: 0px 12px;
+    height: 40px;
+    border: 1px #e3dfdf solid;
+
+}
+
+div.genre-list{
+    margin-left: 5%;
+    width: 15%;
+    background-color: #f2f2f2;
+}
+div.genre-list a{
+    color: #4c4545;
+}
+div.genre-list a:hover{
+    color: #ff2725;
+}
+
+div.fictionListRecommend{
+    margin-right: 5%;
+    width: 15%;
+    border: 1px solid #f0f0f0;
+    padding: 15px 10px ;
+}
+
+
+div.recommendTitle {
+    float: left;
+}
+
+div.moreRecommend{
+    float: right;
+    width: 40px;
+}
+div.moreRecommend a{
+    color: gray;
+    text-decoration: none;
+}
+
+div.moreRecommend a:hover{
+    color: red;
+}
+div.recommendFictions a{
+    text-decoration: none;
+    color: #4d4545;
+}
+
+div.recommendFictions li{
+    padding: 3px 0px;
+    border: #e1d1d1 solid;
+    border-width: 0px 0px 1px 0px;
+}
+
+div.recommendFictions ul{
+    list-style: none;
+}
+div.recommendDiv{
+    position: relative;
+    height: 40px;
+}
+div.recommendFictions ul{
+    padding-left: 5px;
+}
+div.recommendFictions ul span{
+    float: right;
+}
+
+div.main_content{
+    margin-top: 20px;
+    height: 90%;
+}
+.top-box {
+    display: flex;
+    flex-direction: row;
+}
+
+div.top-navigator ul{
+    list-style: none;
+    margin-right: 5%;
+}
+div.top-navigator ul li{
+    display: inline;
+    font-size: 20px;
+    margin-right: 50px;
+}
+
+.authorJump{
+    float: right;
+    padding-right: 60px;
+}
+
+div.bookDetailWrap{
+    margin-top: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-style: outset;
+}
+/*.bookDetailWrap {*/
+    /*margin-top: 70px;*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*padding: 100px 320px;*/
+/*}*/
+
+div.bookInformation{
+    margin-left: 20px;
+}
+div.bookImage {
+    width: 144px;
+    height: 184px;
+    float: left;
+}
+div.bookImage img{
+    height: 184px;
+    width: 144px;
+}
+
+div.bookDetails {
+    margin-left: 170px;
+}
+
+div.bookDetails em{
+    font-size: 36px;
+    font-style: inherit;
+}
+div.bookDetails h1 span{
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+div.bookDetails a{
+    text-decoration: none;
+}
+
+div.bookDetails h1 a{
+    color: #333333;
+}
+div.bookDetails h1 a:hover{
+    color: #ff2725;
+}
+#clearDiv {
+    clear: both;
+}
+
+.contentNavWrap {
+    padding-top: 20px;
+}
+
+
+
+.red-btn{
+    background-color: #ff2725;
+    border: solid #ff2725 1px;
+    color: white;
+    margin-right: 20px;
+    width: 110px;
+    height: 34px;
+    text-align: center;
+    display: inline-block;
+    line-height: 34px;;
+}
+.blue-btn{
+    background-color: white;
+    border: 1px dodgerblue solid;
+    color: dodgerblue;
+    margin-right: 20px;
+    width: 110px;
+    height: 34px;
+    text-align: center;
+    display: inline-block;
+    line-height: 34px;
+}
+.bookNum{
+    font-size: 20px;
+}
+
+div.bookDetails i{
+    color: #d7d0d0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+div.top-navigator a{
+    color: #635c5c;
+    text-decoration: none;
+}
+div.top-navigator{
+    margin-top: 20px;
+    border: solid #b6acac;
+    border-width: 0px 0px 1px 0px;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.synopsisPre{
+    background-color: #FFFFFF;
+    white-space: pre-wrap;
+}
+
+
+div.chapterContainer{
+    background-color: #f7f2e8;
+    padding: 60px 64px;
+}
+
+div.info_reader{
+    font-size: 10px;
+    color: rgb(181, 178, 170);
+}
+
+div.info_reader span{
+    margin-right: 16px;
+}
+
+div.info_reader a {
+    margin-right: 16px;
+    color: rgb(181, 178, 170);
+    text-decoration: none;
+}
+div.info_reader a:hover{
+    color: #ff5b54;
+}
+
+div.chapterContent {
+    margin-bottom: 60px;
+}
+
+div.chapterContent pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 20px;
+    line-height: 1.8;
+    background-color: transparent;
+    border: none;
+}
+
+div.textHeader{
+    margin-bottom: 12px;
+}
+
+div.textWarp {
+    margin-top: 21px;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+div.textHeader h2{
+    margin-bottom: 12px;
+}
+div#sliderWrap{
+    margin: 0 auto;
+    width: 59.5%;
+}
+
+.loginUl{
+    padding-left: 0;
+}
+
+.loginUl li{
+    display: flex;
+    border: 1px solid silver;
+    list-style-type: none;
+    margin-bottom: 20px;
+    align-items: center;
+    padding-left: 15px;
+    height: 35px;
+}
+.loginUl input{
+    margin-left: 10px;
+    border: transparent;
+    background-color: transparent;
+    width: 100%;
+    line-height: 35px;
+    outline: none;
+}
+
+
+div.userRegisterDiv{
+    margin-top: 20px;
+}
+
+div.userRegisterDiv ul {
+    padding-left: 0;
+}
+
+div.userRegisterDiv em{
+    font-style: normal;
+}
+.failEm{
+    color: red;
+    border: 1px solid #dfdad1;
+}
+.successEm{
+    color: green;
+    border: none;
+}
+
+div.userRegisterDiv input {
+    margin-left: 10px;
+    border: transparent;
+    background-color: transparent;
+    width: 259px;
+    line-height: 35px;
+    outline: none;
+    border: solid silver 1px;
+}
+
+div.userRegisterDiv ul li{
+    display: flex;
+    display: flex;
+    /*border: 1px solid silver;*/
+    list-style-type: none;
+    margin-bottom: 20px;
+    align-items: center;
+    padding-left: 15px;
+    height: 35px;
+}
+
+div.register{
+    width: 476px;
+}
+
+div.read-top{
+    padding-left: 10%;
+    top: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+div.read-top ul{
+    list-style: none;
+    margin-bottom: 0;
+}
+div.read-top ul li{
+    display: inline;
+    font-size: 15px;
+    margin-right: 50px;
+}
+div.read-top a{
+    text-decoration: none;
+    color: #4b4844;
+}
+
+.readUserTop a{
+    margin-right: 15px;
+}
+.readUserTop{
+    width: 15%;
+    text-align: right;
+}
+
+div.chapterController{
+    margin: 30px 25% 5%;
+    background-color: #f8f3e9;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    text-align: center;
+
+
+}
+div.chapterController a{
+    text-decoration: none;
+    display: inline-block;
+    width: 33.3%;
+    font: 18px/70px "Adobe Arabic";
+    margin: 0;
+    color: #2f2f2f;
+    background-color: transparent;
+    outline: none;
+}
+div.chapterController a:hover {
+    background-color: #f2ede3;
+}
+
+a.disabled {
+    pointer-events: none;
+    filter: alpha(opacity=0.5);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+div.userLogo {
+    font-size: 25px;
+}
+div.userLogo a{
+    color: #262626;
+    outline: none;
+    text-decoration: none;
+}
+
+div.userHeadTop a{
+    color: #262626;
+    text-decoration: none;
+    outline: none;
+}
+
+
+div.userHeadTop {
+    display: flex;
+    margin-right: 15%;
+    margin-left: 15%;
+    align-items: center;
+    height: 10%;
+}
+div.userHeadTop ul{
+    list-style: none;
+    margin-bottom: 0;
+}
+div.userHeadTop ul li{
+    margin-right: 20px;
+    display: inline;
+    font-size: 25px;
+
+}
+
+div.userHeadTop a:hover{
+    color: #ff4144;
+}
+
+div.pos{
+    position: absolute;
+    right: 5%;
+}
+div.pos a{
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+
+.myself {
+    background-color:#f7f7f7 ;
+    display: flex;
+    padding: 15px;
+}
+
+
+
+div.userInformation{
+    margin-left: 20px;
+    width: 100%;
+}
+p.name{
+    font-size: 20px;
+}
+p.name i{
+    font-size: 15px;
+}
+p.name span{
+    float: right;
+    margin-right: 20px;
+    width: 110px;
+    height: 24px;
+}
+p.name span a{
+    font: 12px/24px "Adobe Devanagari";
+    color: white;
+    background-color: red;
+    display: inherit;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.userHeadTop li.active {
+    border: 0 solid #ff5b54;
+    border-bottom-width: 2px;
+}
+
+div.userInformationUpdate{
+    margin-left: 15%;
+    width: 70%;
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-left: 20px;
+    border: 1px solid #e0e0e0;
+}
+div.userInformationUpdate ul {
+    list-style: none;
+}
+div.userInformationUpdate ul li{
+    display: flex;
+    margin-bottom: 5%;
+    align-items: center;
+}
+div.userInformationUpdate em{
+    font-style: normal;
+    margin-right: 15px;
+    font-size: 16px;
+}
+input.radios{
+    margin-right: 15px;
+}
+
+div.userInformationUpdate a{
+    margin-left: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: 1px solid #efefef;
+    line-height: 25px;
+}
+
+div.genreTitle {
+    font-size: 18px;
+    font-family: "Microsoft YaHei UI";
+    line-height: 52px;
+}
+div.even{
+    border: 1px solid #efefef;
+    border-right-width: 0;
+    background-color: #fafafa;
+}
+
